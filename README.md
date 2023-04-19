@@ -94,7 +94,7 @@ It's time to run the benchmark! Provide your Android device's IP and ADB port as
 python browser-power-hour.py <device ip> <device port>
 ```
 
-While the script is intended to work seamlessly with any device, you may need to change a few variables in the script to get it working correctly.
+While the script is intended to work seamlessly with any device, it's not guaranteed. It's recommended to monitor the device until it starts the Speedometer benchmark. If it doesn't start the benchmark (or doesn't even make it to the benchmark's site in the first place), you may need to change a few variables in the script to get it working correctly (namely: the relative coordinate values for `searchbar` and `speedometer_start`).
 
 **DO NOT** touch the device while it's running the tests. When the script has finished running in your terminal (including generating output), wireless ADB should automatically disconnect, and the device should be safe to use again.
 
