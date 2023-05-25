@@ -10,6 +10,8 @@ What does that mean for end users? Is one browser meaningfully better than anoth
 
 `browser-power-hour` aims to provide a tool to gather data in support of answers to those questions.
 
+> _(Alternative, more biased motivation: "I like Firefox on Android. I know it probably won't be quite as good as Chrome, a browser made by Google for Google's operating system, especially when running on Google's own Tensor chips... but is it actually materially, measurably worse? Can I test that?")_
+
 ## How does it work?
 
 The benchmark utilizes ADB to perform an automated suite of general browser actions for a set of browser apps:
@@ -82,7 +84,7 @@ With everything set up, the benchmark should be ready to run! Here's a last-minu
 - Close out of said browsers and force stop them
 - Set device brightness to its lowest level (for control purposes)
 - Enable Do Not Disturb (banner notifications can interfere with the testing)
-- Set screen timeout to at least five minutes, especially if performing Speedometer benchmarks
+- Set screen timeout to at least five minutes (necessary to not interfere with Speedometer benchmarks)
 
 Additionally, make sure your ADB client device (your laptop/desktop) won't fall asleep during the test - this can cause interruptions and inconsistent data.
 
@@ -109,6 +111,8 @@ Follow [this guide](https://developer.android.com/topic/performance/power/setup-
 Once you've navigated to the Battery Historian webpage, plug in the `bugreport.zip` we generated as part of the test.
 
 Voila! Battery stats! Geek out!
+
+If you do run the test locally, feel free to share the results for your device - I've set up a [Github discussion](https://github.com/mbestavros/browser-power-hour/discussions/1) for just that!
 
 ## Development
 
