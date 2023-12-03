@@ -56,9 +56,9 @@ BROWSERS = {
             "vertical": 0.55,
         }
     },
-    "bromite": {
+    "cromite": {
         "include": True,
-        "package": "org.bromite.bromite.dev",
+        "package": "org.cromite.cromite",
         "searchbar": {
             "horizontal": 0.4629, # 500/1080
             "vertical": 0.9401, # 2200/2340
@@ -133,7 +133,7 @@ def test_app(device, app_name, iterations=1):
             time.sleep(5.0)
 
             device.shell(f'input tap {get_coordinate_string(device, speedometer_start)}')
-            time.sleep(180)
+            time.sleep(120)
 
             # write screenshot of results
             screenshot = device.screencap()

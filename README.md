@@ -34,7 +34,7 @@ As of 2023-04-19, the tool supports three different Android browsers (more to co
 
 - Google Chrome
 - Firefox for Android
-- Bromite (NOTE - use [uazo's fork](https://github.com/uazo/bromite-buildtools/releases); upstream Bromite is _significantly_ out of date and appears unmaintained)
+- [Cromite](https://github.com/uazo/cromite)
 
 The tool will automatically detect and use any supported browsers installed on the test device. If you're not interested in testing a particular browser, just make sure it's uninstalled (or disable it in the script by changing the appropriate `include` key to `False` in the `BROWSERS` dictionary).
 
@@ -70,7 +70,7 @@ The benchmark assumes that Firefox uses bottom navigation. If that setting is ac
 
 It may be interesting to play with different settings, such as having an adblocker enabled, to see what kind of impact they have.
 
-#### Bromite
+#### Cromite
 
 The benchmark assumes that Bromite uses bottom navigation, which is accessible via a flag. If that setting is active, everything else should work out of the box.
 
@@ -79,12 +79,12 @@ The benchmark assumes that Bromite uses bottom navigation, which is accessible v
 With everything set up, the benchmark should be ready to run! Here's a last-minute checklist to make sure the benchmark goes smoothly:
 
 - Make sure the device is not charging, since Battery Historian only reports power consumption when running on battery.
+- Set screen timeout to at least five minutes (necessary to not interfere with Speedometer benchmarks)
 - Close all background apps
 - Close all open tabs in the browsers that will be tested
 - Close out of said browsers and force stop them
-- Set device brightness to its lowest level (for control purposes)
 - Enable Do Not Disturb (banner notifications can interfere with the testing)
-- Set screen timeout to at least five minutes (necessary to not interfere with Speedometer benchmarks)
+- Set device brightness to its lowest level (for control purposes)
 
 Additionally, make sure your ADB client device (your laptop/desktop) won't fall asleep during the test - this can cause interruptions and inconsistent data.
 
