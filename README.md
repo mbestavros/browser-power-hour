@@ -30,11 +30,14 @@ This tool is NOT meant to be a general purpose battery benchmark for devices. It
 
 ## Tested browsers
 
-As of 2023-04-19, the tool supports three different Android browsers (more to come):
+As of 2024-01-02, the tool supports three different Android browsers (more to come):
 
 - Google Chrome
 - Firefox for Android
+- Firefox for Android (Beta)
 - [Cromite](https://github.com/uazo/cromite)
+- Brave
+- Vivaldi
 
 The tool will automatically detect and use any supported browsers installed on the test device. If you're not interested in testing a particular browser, just make sure it's uninstalled (or disable it in the script by changing the appropriate `include` key to `False` in the `BROWSERS` dictionary).
 
@@ -64,15 +67,28 @@ Google Chrome should come installed on most, if not all, GMS-equipped devices.
 
 As of writing (2023-04-15), Google Chrome's homepage will sometimes put the address/search bar in unpredictable locations (i.e. further down the screen than normal). To ensure the benchmark will work, it's recommended to set the Chrome start page to a simple website, like [google.com](https://www.google.com/) or [xkcd.com](https://xkcd.com/), for the duration of the test.
 
-#### Firefox
+#### Firefox (and Firefox Beta)
 
-The benchmark assumes that Firefox uses bottom navigation. If that setting is active, everything else should work out of the box.
+There are two tweaks to make in order to ensure the benchmark runs smoothly:
 
-It may be interesting to play with different settings, such as having an adblocker enabled, to see what kind of impact they have.
+- The benchmark assumes that Firefox uses bottom navigation.
+- Turn off "Autocomplete URLs" under Search settings. This setting sometimes causes Firefox to autofill sites different from what we want in the benchmark, which we want to avoid.
+
+Everything else should work out of the box.
+
+It may be interesting to play with different settings, such as having an adblocker enabled, to see what kind of impact they have on both speed and power consumption.
 
 #### Cromite
 
 The benchmark assumes that Bromite uses bottom navigation, which is accessible via a flag. If that setting is active, everything else should work out of the box.
+
+#### Brave
+
+Brave should work out of the box, but maybe do a test run to double check. I added support for this a while ago and forgot to push it...
+
+#### Vivaldi
+
+The benchmark assumes that Vivaldi uses bottom navigation, available in settings. If that setting is active, everything else should work out of the box.
 
 ### Final preparation
 

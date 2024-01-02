@@ -21,7 +21,7 @@ URLS = [
 
 BROWSERS = {
     "firefox_beta": {
-        "include": True,
+        "include": False,
         "package": "org.mozilla.firefox_beta",
         "searchbar": {
             "horizontal": 0.5,
@@ -56,8 +56,32 @@ BROWSERS = {
             "vertical": 0.55,
         }
     },
+    "brave": {
+        "include": False,
+        "package": "com.brave.browser",
+        "searchbar": {
+            "horizontal": 0.5,
+            "vertical": 0.1, # 234/2340
+        },
+        "speedometer_start": {
+            "horizontal": 0.5,
+            "vertical": 0.55,
+        }
+    },
+    "vivaldi": {
+        "include": False,
+        "package": "com.vivaldi.browser",
+        "searchbar": {
+            "horizontal": 0.4629, # 500/1080
+            "vertical": 0.9401, # 2200/2340
+        },
+        "speedometer_start": {
+            "horizontal": 0.5,
+            "vertical": 0.5,
+        }
+    },
     "cromite": {
-        "include": True,
+        "include": False,
         "package": "org.cromite.cromite",
         "searchbar": {
             "horizontal": 0.4629, # 500/1080
@@ -125,6 +149,7 @@ def test_app(device, app_name, iterations=1):
         speedometer_start = browser_data.get("speedometer_start", None)
         if speedometer_start:
             print("Running Speedometer...")
+            time.sleep(1)
             device.shell(f'input tap {search_bar}')
             time.sleep(1)
             device.shell(f'input text "https://browserbench.org/Speedometer2.1/"')
