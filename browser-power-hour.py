@@ -152,7 +152,7 @@ def test_app(device, app_name, iterations=1):
             time.sleep(1)
             device.shell(f'input tap {search_bar}')
             time.sleep(1)
-            device.shell(f'input text "https://browserbench.org/Speedometer2.1/"')
+            device.shell(f'input text "https://browserbench.org/Speedometer3.0/"')
             time.sleep(1)
             device.shell('input keyevent 66')
             time.sleep(5.0)
