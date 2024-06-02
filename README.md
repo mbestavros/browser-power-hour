@@ -38,6 +38,7 @@ As of 2024-01-02, the tool supports three different Android browsers (more to co
 - [Cromite](https://github.com/uazo/cromite)
 - Brave
 - Vivaldi
+- Vanadium
 
 The tool will automatically detect and use any supported browsers installed on the test device. If you're not interested in testing a particular browser, just make sure it's uninstalled (or disable it in the script by changing the appropriate `include` key to `False` in the `BROWSERS` dictionary).
 
@@ -89,6 +90,10 @@ Brave should work out of the box, but maybe do a test run to double check. I add
 #### Vivaldi
 
 The benchmark assumes that Vivaldi uses bottom navigation, available in settings. If that setting is active, everything else should work out of the box.
+
+#### Vanadium
+
+Should work out of the box.
 
 ### Final preparation
 

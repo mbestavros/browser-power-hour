@@ -56,6 +56,18 @@ BROWSERS = {
             "vertical": 0.55,
         }
     },
+    "vanadium": {
+        "include": False,
+        "package": "app.vanadium.browser",
+        "searchbar": {
+            "horizontal": 0.5,
+            "vertical": 0.1, # 234/2340
+        },
+        "speedometer_start": {
+            "horizontal": 0.5,
+            "vertical": 0.55,
+        }
+    },
     "brave": {
         "include": False,
         "package": "com.brave.browser",
