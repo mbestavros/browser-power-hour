@@ -19,19 +19,13 @@ URLS = [
     "https://themarkup.org/"
 ]
 
+# Browser metadata.
+# Guide:
+# - include: whether to include the browser in the benchmark run.
+# - package: The browser's package name, necessary to launch via ADB
+# - searchbar/speedometer_start: sub-entries for relative touch target coordinate values.
+# For example: horizontal 0.5 and vertical 0.5 would represent a touch in the center of the device's screen.
 BROWSERS = {
-    "firefox_beta": {
-        "include": False,
-        "package": "org.mozilla.firefox_beta",
-        "searchbar": {
-            "horizontal": 0.5,
-            "vertical": 0.9401, # 2200/2340
-        },
-        "speedometer_start": {
-            "horizontal": 0.5,
-            "vertical": 0.5,
-        }
-    },
     "firefox": {
         "include": True,
         "package": "org.mozilla.firefox",
@@ -47,18 +41,6 @@ BROWSERS = {
     "chrome": {
         "include": True,
         "package": "com.android.chrome",
-        "searchbar": {
-            "horizontal": 0.5,
-            "vertical": 0.1, # 234/2340
-        },
-        "speedometer_start": {
-            "horizontal": 0.5,
-            "vertical": 0.55,
-        }
-    },
-    "vanadium": {
-        "include": False,
-        "package": "app.vanadium.browser",
         "searchbar": {
             "horizontal": 0.5,
             "vertical": 0.1, # 234/2340
@@ -97,6 +79,30 @@ BROWSERS = {
         "package": "org.cromite.cromite",
         "searchbar": {
             "horizontal": 0.4629, # 500/1080
+            "vertical": 0.9401, # 2200/2340
+        },
+        "speedometer_start": {
+            "horizontal": 0.5,
+            "vertical": 0.5,
+        }
+    },
+    "vanadium": {
+        "include": False,
+        "package": "app.vanadium.browser",
+        "searchbar": {
+            "horizontal": 0.5,
+            "vertical": 0.1, # 234/2340
+        },
+        "speedometer_start": {
+            "horizontal": 0.5,
+            "vertical": 0.55,
+        }
+    },
+    "firefox_beta": {
+        "include": False,
+        "package": "org.mozilla.firefox_beta",
+        "searchbar": {
+            "horizontal": 0.5,
             "vertical": 0.9401, # 2200/2340
         },
         "speedometer_start": {
@@ -214,7 +220,7 @@ def test_app(device, app_name, iterations=1):
 
     # quit app by spamming back
     print(f"Completed testing for app {app_name}; quitting")
-    for _ in range(0, 15*iterations):
+    for _ in range(0, 20*iterations):
         device.shell('input keyevent 4')
 
 
