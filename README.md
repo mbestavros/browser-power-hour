@@ -30,7 +30,7 @@ This tool is NOT meant to be a general purpose battery benchmark for devices. It
 
 ## Tested browsers
 
-As of 2024-01-02, the tool supports three different Android browsers (more to come):
+As of 2024-01-02, the tool supports several different Android browsers:
 
 - Google Chrome
 - Firefox for Android
