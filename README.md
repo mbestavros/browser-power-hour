@@ -30,7 +30,7 @@ This tool is NOT meant to be a general purpose battery benchmark for devices. It
 
 ## Tested browsers
 
-As of 2024-01-02, the tool supports several different Android browsers:
+As of 2024-06-11, the tool supports several different Android browsers:
 
 - Google Chrome
 - Firefox for Android
@@ -111,10 +111,16 @@ Additionally, make sure your ADB client device (your laptop/desktop) won't fall 
 
 ### Running the benchmark
 
-It's time to run the benchmark! Provide your Android device's IP and ADB port as separate arguments to `browser-power-hour.py` (accessible in the Wireless Debugging settings):
+It's time to run the benchmark! If you've manually connected your device with wireless debugging, just run `browser-power-hour.py`:
 
 ```shell
-python browser-power-hour.py <device ip> <device port>
+python browser-power-hour.py
+```
+
+Alternatively, provide your Android device's IP and ADB port (accessible in the Wireless Debugging settings) to the `-ip` flag, and the script will connect for you:
+
+```shell
+python browser-power-hour.py -ip <device ip>:<device port>
 ```
 
 While the script is intended to work seamlessly with any device, it's not guaranteed. It's recommended to monitor the device until it starts the Speedometer benchmark. If it doesn't start the benchmark (or doesn't even make it to the benchmark's site in the first place), you may need to change a few variables in the script to get it working correctly (namely: the relative coordinate values for `searchbar` and `speedometer_start`).
@@ -134,6 +140,13 @@ Once you've navigated to the Battery Historian webpage, plug in the `bugreport.z
 Voila! Battery stats! Geek out!
 
 If you do run the test locally, feel free to share the results for your device - I've set up a [Github discussion](https://github.com/mbestavros/browser-power-hour/discussions/1) for just that!
+
+## Additional script flags
+
+The script exposes some basic flags to make the script work better in some scenarios.
+
+- `-n` or `--iterations`: the number of times to run the main test loop.
+- `--speedometer_timeout`: how long to wait before Speedometer completes, in seconds. Defaults to 180 seconds; modern flagships may need much less than this (my Pixel 8 Pro can do it in under 120).
 
 ## Development
 
