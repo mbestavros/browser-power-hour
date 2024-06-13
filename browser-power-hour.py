@@ -51,7 +51,7 @@ BROWSERS = {
         }
     },
     "brave": {
-        "include": False,
+        "include": True,
         "package": "com.brave.browser",
         "searchbar": {
             "horizontal": 0.5,
@@ -63,7 +63,7 @@ BROWSERS = {
         }
     },
     "vivaldi": {
-        "include": False,
+        "include": True,
         "package": "com.vivaldi.browser",
         "searchbar": {
             "horizontal": 0.4629, # 500/1080
@@ -75,7 +75,7 @@ BROWSERS = {
         }
     },
     "cromite": {
-        "include": False,
+        "include": True,
         "package": "org.cromite.cromite",
         "searchbar": {
             "horizontal": 0.4629, # 500/1080
@@ -87,7 +87,7 @@ BROWSERS = {
         }
     },
     "vanadium": {
-        "include": False,
+        "include": True,
         "package": "app.vanadium.browser",
         "searchbar": {
             "horizontal": 0.5,
@@ -99,7 +99,7 @@ BROWSERS = {
         }
     },
     "firefox_beta": {
-        "include": False,
+        "include": True,
         "package": "org.mozilla.firefox_beta",
         "searchbar": {
             "horizontal": 0.5,
