@@ -176,7 +176,7 @@ def test_app(device, app_name, iterations=1, speedometer_timeout=120):
             time.sleep(5.0)
 
             device.shell(f'input tap {get_coordinate_string(device, speedometer_start)}')
-            time.sleep(speedometer_timeout)
+            time.sleep(int(speedometer_timeout))
 
             # write screenshot of results
             screenshot = device.screencap()
