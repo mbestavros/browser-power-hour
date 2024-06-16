@@ -129,7 +129,7 @@ TOUCH_TARGETS = {
 
 
 def get_coordinate_string(device, coordinate):
-    dimensions = device.shell('wm size').strip().replace("Physical size: ", "").split("x")
+    dimensions = device.shell('wm size').strip().replace("Physical size: ", "").replace("Override size: ", "").split("x")
     width = int(dimensions[0])
     height = int(dimensions[1])
     horizontal_coordinate = width * coordinate["horizontal"]
