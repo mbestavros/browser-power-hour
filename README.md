@@ -136,7 +136,7 @@ With everything set up, the benchmark should be ready to run! Here's a last-minu
 - Close all open tabs in the browsers that will be tested
 - Close out of said browsers and force stop them
 - Run a sanity check to verify the browser your results are sane
-- Charge to at above 30% (some OEMs are known to cap the performance when the phone is running out of charge)
+- Ensure the device is fully charged and Battery Saver is not on (some OEMs are known to cap the performance when the phone is running out of charge or on Battery Saver)
 - Enable Do Not Disturb (banner notifications can interfere with the testing)
 - Set device brightness to its lowest level (for control purposes)
 
