@@ -99,10 +99,12 @@ Should work out of the box.
 
 In the past OEMs have been caught artifically limiting the performance of certain detected Apps which often included various different browsers. Notably Oneplus ([source](https://arstechnica.com/gadgets/2021/07/oneplus-admits-to-throttling-phones-after-launch-to-improve-battery-life/#:~:text=We%20have%20detected%20that%20OnePlus%20is%20blacklisting%20popular,top%20popular%20non-benchmark%20apps%20get%20notably%20reduced%20performance.)) and Samsung ([source](https://www.androidauthority.com/samsung-gos-throttling-apps-3125885/)) in the last couple of years.
 Since the purpose of the benchmark is not to test some OEM cheating software you should perform a quick sanity check if the performance of your browser roughly falls roughly in line with other devices with the same chipset or primary CPU core. 
-If you'd like to test whether performance throttling may be occurring, try running the [Octane JS benchmark by Google](https://chromium.github.io/octane) - it runs in less than a minute and yields very consistent results. Compare to the table below - if the results for your device/SoC are more than 30% off, it's likely that some manipulation is going on. You can try to prevent this by disabling battery saving features or enabling "performance modes" - however, this may still not remove the artificial limits on Samsung and OnePlus devices.
+The benchmark [Octane JS by Google](https://chromium.github.io/octane) is a pure Javascript benchmark and runs in less than a minute and yields very constistant results. If the results for your device are more than 30% off its likley that some manipulation is going on. You can also try to prevent this by enabling any performance mode and disabling any battery saving related features on the device if available, however in the case of Samsung and Oneplus this still did not remove the artifical limits.
 
-An additional testing method would be to monitor your phone's CPU clockspeeds using an app like [CPU Float](https://play.google.com/store/apps/details?id=com.waterdaaan.cpufloat&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1). Upon starting the benchmarks, the phone should almost immediately reach the advertised maximum CPU clock (or something close to it) on at least one core.
+Also due to the singlethreaded nature of Javascript when using an App to monitor your phones CPU Clocks Speeds like [CPU Float](https://play.google.com/store/apps/details?id=com.waterdaaan.cpufloat&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1) upon starting the benchmarks the phone should almost immediatly reach the advertised max. CPU Clock or something close to it on at least one core.
 
+<details>
+  <summary>Score / SoC Table</summary>
 
 
 | Soc            | Primary CPU                    | OctaneJS Chromium | OctaneJS Firefox |
@@ -125,6 +127,9 @@ An additional testing method would be to monitor your phone's CPU clockspeeds us
 | MTK Helio X20  | Cortex A-72 @ 2.3 Ghz          | ~ 11000           | ~ 6500           |
 
 If you want to add more scores, please add ones if you have more than two or more samples from different phones with the same SoC that are within the margin of error ( ~ 15 %)
+</details>
+
+
 
 ### Final preparation
 
@@ -136,7 +141,7 @@ With everything set up, the benchmark should be ready to run! Here's a last-minu
 - Close all open tabs in the browsers that will be tested
 - Close out of said browsers and force stop them
 - Run a sanity check to verify the browser your results are sane
-- Ensure the device is fully charged and Battery Saver is not on (some OEMs are known to cap the performance when the phone is running out of charge or on Battery Saver)
+- Charge to at above 30% (some OEMs are known to cap the performance when the phone is running out of charge)
 - Enable Do Not Disturb (banner notifications can interfere with the testing)
 - Set device brightness to its lowest level (for control purposes)
 
