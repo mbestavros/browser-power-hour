@@ -110,6 +110,18 @@ BROWSERS = {
             "vertical": 0.5,
         }
     },
+    "firefox_nightly": {
+        "include": True,
+        "package": "org.mozilla.fenix",
+        "searchbar": {
+            "horizontal": 0.5,
+            "vertical": 0.9401, # 2200/2340
+        },
+        "speedometer_start": {
+            "horizontal": 0.5,
+            "vertical": 0.5,
+        }
+    },
 }
 
 TOUCH_TARGETS = {
