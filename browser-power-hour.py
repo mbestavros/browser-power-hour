@@ -150,6 +150,61 @@ def get_coordinate_string(device, coordinate):
     return f"{horizontal_coordinate} {vertical_coordinate}"
 
 
+def test_speedometer(device, browser_data, search_bar, speedometer_timeout, app_name, iteration):
+    speedometer_start = browser_data.get("speedometer_start", None)
+    if speedometer_start:
+        print("Running Speedometer...")
+        time.sleep(1)
+        device.shell(f'input tap {search_bar}')
+        time.sleep(1)
+        device.shell(f'input text "https://browserbench.org/Speedometer3.0/"')
+        time.sleep(1)
+        device.shell('input keyevent 66')
+        time.sleep(5.0)
+
+        device.shell(f'input tap {get_coordinate_string(device, speedometer_start)}')
+        time.sleep(int(speedometer_timeout))
+
+        # write screenshot of results
+        screenshot = device.screencap()
+
+        screenshot_title = f"output/speedometer-{app_name}-{iteration}.png"
+        with open(screenshot_title, "wb") as f:
+            f.write(screenshot)
+            print(f"Saved Speedometer result screenshot to {screenshot_title}")
+
+
+def test_websites(device, search_bar, swipe_bottom, swipe_medium, swipe_top):
+    counter = 0
+    for url in URLS:
+
+        device.shell(f'input tap {search_bar}')
+        time.sleep(1)
+        device.shell(f'input text "{url}"') # make sure you have the quotation marks around your text
+        time.sleep(1)
+        device.shell('input keyevent 66')
+        time.sleep(5.0)
+        device.shell(f'input touchscreen swipe {swipe_bottom} {swipe_top} 200')
+        time.sleep(0.5)
+        device.shell(f'input touchscreen swipe {swipe_bottom} {swipe_top} 200')
+        time.sleep(3.0)
+        device.shell(f'input touchscreen swipe {swipe_top} {swipe_medium} 200')
+        time.sleep(3.0)
+
+        counter = counter + 1
+        if counter % 2 == 0:
+            device.shell('input keyevent 4')
+
+
+def test_ufo(device, search_bar):
+    device.shell(f'input tap {search_bar}')
+    time.sleep(1)
+    device.shell(f'input text "https://www.testufo.com/"')
+    time.sleep(1)
+    device.shell('input keyevent 66')
+    time.sleep(30.0)
+
+
 def test_app(device, app_name, iterations=1, speedometer_timeout=120):
     browser_data = BROWSERS[app_name]
     if not browser_data["include"]:
@@ -176,56 +231,26 @@ def test_app(device, app_name, iterations=1, speedometer_timeout=120):
     while iteration <= iterations:
         print(f"Beginning iteration {iteration} of {iterations}")
 
-        speedometer_start = browser_data.get("speedometer_start", None)
-        if speedometer_start:
-            print("Running Speedometer...")
-            time.sleep(1)
-            device.shell(f'input tap {search_bar}')
-            time.sleep(1)
-            device.shell(f'input text "https://browserbench.org/Speedometer3.0/"')
-            time.sleep(1)
-            device.shell('input keyevent 66')
-            time.sleep(5.0)
+        test_speedometer(
+            device=device,
+            browser_data=browser_data,
+            search_bar=search_bar,
+            speedometer_timeout=speedometer_timeout,
+            app_name=app_name,
+            iteration=iteration
+        )
 
-            device.shell(f'input tap {get_coordinate_string(device, speedometer_start)}')
-            time.sleep(int(speedometer_timeout))
-
-            # write screenshot of results
-            screenshot = device.screencap()
-
-            screenshot_title = f"output/speedometer-{app_name}-{iteration}.png"
-            with open(screenshot_title, "wb") as f:
-                f.write(screenshot)
-                print(f"Saved Speedometer result screenshot to {screenshot_title}")
-
-        counter = 0
-        for url in URLS:
-
-            device.shell(f'input tap {search_bar}')
-            time.sleep(1)
-            device.shell(f'input text "{url}"') # make sure you have the quotation marks around your text
-            time.sleep(1)
-            device.shell('input keyevent 66')
-            time.sleep(5.0)
-            device.shell(f'input touchscreen swipe {swipe_bottom} {swipe_top} 200')
-            time.sleep(0.5)
-            device.shell(f'input touchscreen swipe {swipe_bottom} {swipe_top} 200')
-            time.sleep(3.0)
-            device.shell(f'input touchscreen swipe {swipe_top} {swipe_medium} 200')
-            time.sleep(3.0)
-
-            counter = counter + 1
-            if counter % 2 == 0:
-                device.shell('input keyevent 4')
+        test_websites(
+            device=device,
+            search_bar=search_bar,
+            swipe_bottom=swipe_bottom,
+            swipe_medium=swipe_medium,
+            swipe_top=swipe_top
+        )
 
         time.sleep(3)
 
-        device.shell(f'input tap {search_bar}')
-        time.sleep(1)
-        device.shell(f'input text "https://www.testufo.com/"')
-        time.sleep(1)
-        device.shell('input keyevent 66')
-        time.sleep(30.0)
+        test_ufo(device=device, search_bar=search_bar)
 
         print(f"Completed iteration {iteration} of {iterations}; elapsed time: {time.time() - start}")
         iteration = iteration + 1
