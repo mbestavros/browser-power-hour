@@ -157,7 +157,7 @@ def test_speedometer(device, browser_data, search_bar, speedometer_timeout, app_
         time.sleep(1)
         device.shell(f'input tap {search_bar}')
         time.sleep(1)
-        device.shell(f'input text "https://browserbench.org/Speedometer3.0/"')
+        device.shell(f'input text "https://browserbench.org/Speedometer3.1/"')
         time.sleep(1)
         device.shell('input keyevent 66')
         time.sleep(5.0)

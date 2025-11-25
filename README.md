@@ -16,7 +16,7 @@ What does that mean for end users? Is one browser meaningfully better than anoth
 
 The benchmark utilizes ADB to perform an automated suite of general browser actions for a set of browser apps:
 
-- Perform a Speedometer 3.0 test, screenshot the result, and save it
+- Perform a Speedometer 3.1 test, screenshot the result, and save it
 - Navigate to a set of news websites and scroll around
 - Run the [`testufo`](https://www.testufo.com/) benchmark for a minute
 
